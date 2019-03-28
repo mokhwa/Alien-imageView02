@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var CountLabel: UILabel!
     
     var count = 1
+    var switch2 = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +23,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ButtonPressed(_ sender: Any) {
-        count+=1
         alienImage.image = UIImage(named:"frame\(count).png")
         CountLabel.text = "frame\(count).png"
-        if(count == 5){
-        count = 0
-    }
-    
 
+        if count == 5 {
+            switch2 = false
+        }
+        else if count == 1 {
+            switch2 = true
+        }
+        
+        if switch2 == true {
+            count += 1
+        }
+        else if switch2 == false {
+            count -= 1
+        }
     }
 }
